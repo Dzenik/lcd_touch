@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<EmBlocks_layout_file>
+	<ActiveTarget name="Debug" />
+	<File name="FreeRTOS\FreeRTOSConfig.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="825" topLine="64" />
+		</Cursor>
+	</File>
+	<File name="FreeRTOS\Source\include\FreeRTOS.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="3406" topLine="46" />
+		</Cursor>
+	</File>
+	<File name="FreeRTOS\Source\include\StackMacros.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="4061" topLine="55" />
+		</Cursor>
+	</File>
+	<File name="FreeRTOS\Source\tasks.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="51349" topLine="1551" />
+		</Cursor>
+	</File>
+	<File name="inc\ili_lcd_general.h" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="673" topLine="17" />
+		</Cursor>
+	</File>
+	<File name="inc\lcd_api.h" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1281" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="inc\menu.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="843" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="inc\touch.h" open="1" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="34" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="src\fsmc.c" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2618" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="src\ili_lcd_general.c" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="5448" topLine="75" />
+		</Cursor>
+		<Folding>
+			<Collapse line="32" />
+			<Collapse line="157" />
+			<Collapse line="179" />
+			<Collapse line="228" />
+			<Collapse line="291" />
+		</Folding>
+	</File>
+	<File name="src\lcd_api.c" open="1" top="1" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="3737" topLine="66" />
+		</Cursor>
+	</File>
+	<File name="src\main.c" open="1" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="3025" topLine="42" />
+		</Cursor>
+		<Folding>
+			<Collapse line="46" />
+			<Collapse line="149" />
+		</Folding>
+	</File>
+	<File name="src\menu.c" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1004" topLine="20" />
+		</Cursor>
+	</File>
+	<File name="src\speaker.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1535" topLine="38" />
+		</Cursor>
+	</File>
+	<File name="src\startup_stm32f10x_hd.S" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="7459" topLine="120" />
+		</Cursor>
+	</File>
+	<File name="src\stm32f10x_it.c" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="4006" topLine="128" />
+		</Cursor>
+	</File>
+	<File name="src\system_stm32f10x.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="7790" topLine="209" />
+		</Cursor>
+	</File>
+	<File name="src\touch_test.c" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="9970" topLine="165" />
+		</Cursor>
+		<Folding>
+			<Collapse line="31" />
+			<Collapse line="47" />
+			<Collapse line="59" />
+			<Collapse line="92" />
+		</Folding>
+	</File>
+</EmBlocks_layout_file>

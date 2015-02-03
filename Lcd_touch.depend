@@ -1,0 +1,390 @@
+# depslib dependency file v1.0
+1422568852 source:d:\em_prj\lcd_touch\spl\src\misc.c
+	"misc.h"
+
+1422568851 d:\em_prj\lcd_touch\spl\inc\misc.h
+	"stm32f10x.h"
+
+1422568851 d:\em_prj\lcd_touch\inc\stm32f10x.h
+	"core_cm3.h"
+	"system_stm32f10x.h"
+	<stdint.h>
+	"stm32f10x_conf.h"
+
+1422568852 d:\em_prj\lcd_touch\cmsis\core_cm3.h
+	<stdint.h>
+	<core_cmInstr.h>
+	<core_cmFunc.h>
+
+1422568852 d:\em_prj\lcd_touch\cmsis\core_cminstr.h
+	<cmsis_iar.h>
+	<cmsis_ccs.h>
+
+1422568852 d:\em_prj\lcd_touch\cmsis\core_cmfunc.h
+	<cmsis_iar.h>
+	<cmsis_ccs.h>
+
+1422568851 d:\em_prj\lcd_touch\inc\system_stm32f10x.h
+
+1277021660 d:\em_prj\lcd_touch\inc\stm32f10x_conf.h
+	"stm32f10x_exti.h"
+	"stm32f10x_fsmc.h"
+	"stm32f10x_gpio.h"
+	"stm32f10x_rcc.h"
+	"stm32f10x_spi.h"
+	"stm32f10x_usart.h"
+	"misc.h"
+
+1422568851 d:\em_prj\lcd_touch\spl\inc\stm32f10x_exti.h
+	"stm32f10x.h"
+
+1422568851 d:\em_prj\lcd_touch\spl\inc\stm32f10x_fsmc.h
+	"stm32f10x.h"
+
+1422568851 d:\em_prj\lcd_touch\spl\inc\stm32f10x_gpio.h
+	"stm32f10x.h"
+
+1422568851 d:\em_prj\lcd_touch\spl\inc\stm32f10x_rcc.h
+	"stm32f10x.h"
+
+1422568851 d:\em_prj\lcd_touch\spl\inc\stm32f10x_spi.h
+	"stm32f10x.h"
+
+1422568852 d:\em_prj\lcd_touch\spl\inc\stm32f10x_usart.h
+	"stm32f10x.h"
+
+1422568852 source:d:\em_prj\lcd_touch\spl\src\stm32f10x_adc.c
+	"stm32f10x_adc.h"
+	"stm32f10x_rcc.h"
+
+1422568851 d:\em_prj\lcd_touch\spl\inc\stm32f10x_adc.h
+	"stm32f10x.h"
+
+1422568852 source:d:\em_prj\lcd_touch\spl\src\stm32f10x_bkp.c
+	"stm32f10x_bkp.h"
+	"stm32f10x_rcc.h"
+
+1422568851 d:\em_prj\lcd_touch\spl\inc\stm32f10x_bkp.h
+	"stm32f10x.h"
+
+1422568852 source:d:\em_prj\lcd_touch\spl\src\stm32f10x_can.c
+	"stm32f10x_can.h"
+	"stm32f10x_rcc.h"
+
+1422568851 d:\em_prj\lcd_touch\spl\inc\stm32f10x_can.h
+	"stm32f10x.h"
+
+1422568852 source:d:\em_prj\lcd_touch\spl\src\stm32f10x_cec.c
+	"stm32f10x_cec.h"
+	"stm32f10x_rcc.h"
+
+1422568851 d:\em_prj\lcd_touch\spl\inc\stm32f10x_cec.h
+	"stm32f10x.h"
+
+1422568852 source:d:\em_prj\lcd_touch\spl\src\stm32f10x_crc.c
+	"stm32f10x_crc.h"
+
+1422568851 d:\em_prj\lcd_touch\spl\inc\stm32f10x_crc.h
+	"stm32f10x.h"
+
+1422568852 source:d:\em_prj\lcd_touch\spl\src\stm32f10x_dac.c
+	"stm32f10x_dac.h"
+	"stm32f10x_rcc.h"
+
+1422568851 d:\em_prj\lcd_touch\spl\inc\stm32f10x_dac.h
+	"stm32f10x.h"
+
+1422568852 source:d:\em_prj\lcd_touch\spl\src\stm32f10x_dbgmcu.c
+	"stm32f10x_dbgmcu.h"
+
+1422568851 d:\em_prj\lcd_touch\spl\inc\stm32f10x_dbgmcu.h
+	"stm32f10x.h"
+
+1422568852 source:d:\em_prj\lcd_touch\spl\src\stm32f10x_dma.c
+	"stm32f10x_dma.h"
+	"stm32f10x_rcc.h"
+
+1422568851 d:\em_prj\lcd_touch\spl\inc\stm32f10x_dma.h
+	"stm32f10x.h"
+
+1422568852 source:d:\em_prj\lcd_touch\spl\src\stm32f10x_exti.c
+	"stm32f10x_exti.h"
+
+1422568852 source:d:\em_prj\lcd_touch\spl\src\stm32f10x_flash.c
+	"stm32f10x_flash.h"
+
+1422568851 d:\em_prj\lcd_touch\spl\inc\stm32f10x_flash.h
+	"stm32f10x.h"
+
+1422568852 source:d:\em_prj\lcd_touch\spl\src\stm32f10x_fsmc.c
+	"stm32f10x_fsmc.h"
+	"stm32f10x_rcc.h"
+
+1422568852 source:d:\em_prj\lcd_touch\spl\src\stm32f10x_gpio.c
+	"stm32f10x_gpio.h"
+	"stm32f10x_rcc.h"
+
+1422568852 source:d:\em_prj\lcd_touch\spl\src\stm32f10x_i2c.c
+	"stm32f10x_i2c.h"
+	"stm32f10x_rcc.h"
+
+1422568851 d:\em_prj\lcd_touch\spl\inc\stm32f10x_i2c.h
+	"stm32f10x.h"
+
+1422568852 source:d:\em_prj\lcd_touch\spl\src\stm32f10x_iwdg.c
+	"stm32f10x_iwdg.h"
+
+1422568851 d:\em_prj\lcd_touch\spl\inc\stm32f10x_iwdg.h
+	"stm32f10x.h"
+
+1422568852 source:d:\em_prj\lcd_touch\spl\src\stm32f10x_pwr.c
+	"stm32f10x_pwr.h"
+	"stm32f10x_rcc.h"
+
+1422568851 d:\em_prj\lcd_touch\spl\inc\stm32f10x_pwr.h
+	"stm32f10x.h"
+
+1422568852 source:d:\em_prj\lcd_touch\spl\src\stm32f10x_rcc.c
+	"stm32f10x_rcc.h"
+
+1422568852 source:d:\em_prj\lcd_touch\spl\src\stm32f10x_rtc.c
+	"stm32f10x_rtc.h"
+
+1422568851 d:\em_prj\lcd_touch\spl\inc\stm32f10x_rtc.h
+	"stm32f10x.h"
+
+1422568852 source:d:\em_prj\lcd_touch\spl\src\stm32f10x_sdio.c
+	"stm32f10x_sdio.h"
+	"stm32f10x_rcc.h"
+
+1422568851 d:\em_prj\lcd_touch\spl\inc\stm32f10x_sdio.h
+	"stm32f10x.h"
+
+1422568852 source:d:\em_prj\lcd_touch\spl\src\stm32f10x_spi.c
+	"stm32f10x_spi.h"
+	"stm32f10x_rcc.h"
+
+1422568852 source:d:\em_prj\lcd_touch\spl\src\stm32f10x_tim.c
+	"stm32f10x_tim.h"
+	"stm32f10x_rcc.h"
+
+1422568851 d:\em_prj\lcd_touch\spl\inc\stm32f10x_tim.h
+	"stm32f10x.h"
+
+1422568852 source:d:\em_prj\lcd_touch\spl\src\stm32f10x_usart.c
+	"stm32f10x_usart.h"
+	"stm32f10x_rcc.h"
+
+1422568852 source:d:\em_prj\lcd_touch\spl\src\stm32f10x_wwdg.c
+	"stm32f10x_wwdg.h"
+	"stm32f10x_rcc.h"
+
+1422568852 d:\em_prj\lcd_touch\spl\inc\stm32f10x_wwdg.h
+	"stm32f10x.h"
+
+1290685046 source:d:\em_prj\lcd_touch\src\english_16x8.c
+
+1277021660 source:d:\em_prj\lcd_touch\src\fsmc.c
+	"stm32f10x.h"
+
+1422921303 source:d:\em_prj\lcd_touch\src\ili_lcd_general.c
+	"ili_lcd_general.h"
+	"stm32f10x.h"
+	<stdio.h>
+
+1422920377 d:\em_prj\lcd_touch\inc\ili_lcd_general.h
+	"rtthread.h"
+	<rtgui/rtgui.h>
+	<rtgui/driver.h>
+	<rtgui/rtgui_server.h>
+	<rtgui/rtgui_system.h>
+
+1422921038 source:d:\em_prj\lcd_touch\src\lcd_api.c
+	<stdint.h>
+	"FreeRTOS.h"
+	"queue.h"
+	"task.h"
+	"ili_lcd_general.h"
+	"lcd_api.h"
+	"semphr.h"
+	<stdarg.h>
+
+1422919831 source:d:\em_prj\lcd_touch\src\main.c
+	<stdio.h>
+	"stm32f10x.h"
+	"FreeRTOS.h"
+	"task.h"
+	"queue.h"
+	"touch.h"
+	"menu.h"
+	"speaker.h"
+	"ili_lcd_general.h"
+	"lcd_api.h"
+
+1422921845 d:\em_prj\lcd_touch\inc\lcd_api.h
+	<stdint.h>
+
+1422568851 source:d:\em_prj\lcd_touch\src\startup_stm32f10x_hd.s
+
+1422919729 source:d:\em_prj\lcd_touch\src\stm32f10x_it.c
+	"stm32f10x.h"
+
+1422568851 source:d:\em_prj\lcd_touch\src\system_stm32f10x.c
+	"stm32f10x.h"
+
+1422919693 source:d:\em_prj\lcd_touch\src\touch_test.c
+	<stdio.h>
+	"stm32f10x.h"
+	"FreeRTOS.h"
+	"queue.h"
+	"touch.h"
+	"task.h"
+	"speaker.h"
+	"stm32f10x.h"
+
+1339195066 source:d:\em_prj\lcd_touch\freertos\source\list.c
+	<stdlib.h>
+	"FreeRTOS.h"
+	"list.h"
+
+1339195066 d:\em_prj\lcd_touch\freertos\source\include\freertos.h
+	<stddef.h>
+	"projdefs.h"
+	"FreeRTOSConfig.h"
+	"portable.h"
+
+1339195066 d:\em_prj\lcd_touch\freertos\source\include\projdefs.h
+
+1339195066 d:\em_prj\lcd_touch\freertos\freertosconfig.h
+
+1339195066 d:\em_prj\lcd_touch\freertos\source\include\portable.h
+	"..\..\Source\portable\owatcom\16bitdos\pc\portmacro.h"
+	"..\..\Source\portable\owatcom\16bitdos\flsh186\portmacro.h"
+	"../portable/GCC/ATMega323/portmacro.h"
+	"../portable/IAR/ATMega323/portmacro.h"
+	"..\..\Source\portable\MPLAB\PIC24_dsPIC\portmacro.h"
+	"..\..\Source\portable\MPLAB\PIC24_dsPIC\portmacro.h"
+	"..\..\Source\portable\MPLAB\PIC18F\portmacro.h"
+	"..\..\Source\portable\MPLAB\PIC32MX\portmacro.h"
+	"libFreeRTOS/Include/portmacro.h"
+	"../../Source/portable/SDCC/Cygnal/portmacro.h"
+	"../../Source/portable/GCC/ARM7_LPC2000/portmacro.h"
+	"portmacro.h"
+	"../../Source/portable/GCC/ARM7_LPC23xx/portmacro.h"
+	"..\..\Source\portable\IAR\MSP430\portmacro.h"
+	"../../Source/portable/GCC/MSP430F449/portmacro.h"
+	"../../Source/portable/Rowley/MSP430F449/portmacro.h"
+	"..\..\Source\portable\RVDS\ARM7_LPC21xx\portmacro.h"
+	"../../Source/portable/GCC/ARM7_AT91SAM7S/portmacro.h"
+	"..\..\Source\portable\IAR\AtmelSAM7S64\portmacro.h"
+	"..\..\Source\portable\IAR\AtmelSAM9XE\portmacro.h"
+	"..\..\Source\portable\IAR\LPC2000\portmacro.h"
+	"..\..\Source\portable\IAR\STR71x\portmacro.h"
+	"..\..\Source\portable\IAR\STR75x\portmacro.h"
+	"..\..\Source\portable\GCC\STR75x\portmacro.h"
+	"..\..\Source\portable\IAR\STR91x\portmacro.h"
+	"../../Source/portable/GCC/H8S2329/portmacro.h"
+	"../../Source/portable/GCC/ARM7_AT91FR40008/portmacro.h"
+	"../../Source/portable/RVDS/ARM_CM3/portmacro.h"
+	"../../Source/portable/GCC/ARM_CM3/portmacro.h"
+	"../../Source/portable/GCC/ARM_CM3/portmacro.h"
+	"../../Source/portable/IAR/ARM_CM3/portmacro.h"
+	"../../Source/portable/IAR/ARM_CM3/portmacro.h"
+	"../../Source/portable/CodeWarrior/HCS12/portmacro.h"
+	"../../Source/portable/GCC/MicroBlaze/portmacro.h"
+	"..\..\Source\portable\Paradigm\Tern_EE\small\portmacro.h"
+	"../../Source/portable/GCC/HCS12/portmacro.h"
+	"../../Source/portable/GCC/MCF5235/portmacro.h"
+	"../../../Source/portable/GCC/ColdFire_V2/portmacro.h"
+	"../../Source/portable/CodeWarrior/ColdFire_V2/portmacro.h"
+	"../../Source/portable/GCC/PPC405_Xilinx/portmacro.h"
+	"../../Source/portable/GCC/PPC440_Xilinx/portmacro.h"
+	"..\..\Source\portable\Softune\MB96340\portmacro.h"
+	"frconfig.h"
+	"..\portable\BCC\16BitDOS\PC\prtmacro.h"
+	"frconfig.h"
+	"..\portable\BCC\16BitDOS\flsh186\prtmacro.h"
+	"portmacro.h"
+	"portmacro.h"
+	"portmacro.h"
+	"portmacro.h"
+	"../../Source/portable/IAR/V850ES/portmacro.h"
+	"../../Source/portable/IAR/V850ES/portmacro.h"
+	"../../Source/portable/IAR/V850ES/portmacro.h"
+	"../../Source/portable/IAR/V850ES/portmacro.h"
+	"../../Source/portable/IAR/V850ES/portmacro.h"
+	"../../Source/portable/IAR/78K0R/portmacro.h"
+	"../../Source/portable/IAR/78K0R/portmacro.h"
+	"portmacro.h"
+	"mpu_wrappers.h"
+
+1339195066 d:\em_prj\lcd_touch\freertos\source\portable\gcc\arm_cm3\portmacro.h
+
+1339195066 d:\em_prj\lcd_touch\freertos\source\include\mpu_wrappers.h
+
+1339195066 d:\em_prj\lcd_touch\freertos\source\include\list.h
+
+1339195066 source:d:\em_prj\lcd_touch\freertos\source\portable\gcc\arm_cm3\port.c
+	"FreeRTOS.h"
+	"task.h"
+
+1339195066 d:\em_prj\lcd_touch\freertos\source\include\task.h
+	"portable.h"
+	"list.h"
+
+1339195066 source:d:\em_prj\lcd_touch\freertos\source\portable\memmang\heap_2.c
+	<stdlib.h>
+	"FreeRTOS.h"
+	"task.h"
+
+1339195066 source:d:\em_prj\lcd_touch\freertos\source\queue.c
+	<stdlib.h>
+	<string.h>
+	"FreeRTOS.h"
+	"task.h"
+	"croutine.h"
+
+1339195066 d:\em_prj\lcd_touch\freertos\source\include\croutine.h
+	"list.h"
+
+1339195066 source:d:\em_prj\lcd_touch\freertos\source\tasks.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"FreeRTOS.h"
+	"task.h"
+	"StackMacros.h"
+
+1339195066 d:\em_prj\lcd_touch\freertos\source\include\stackmacros.h
+
+1339195066 d:\em_prj\lcd_touch\freertos\source\include\queue.h
+	"mpu_wrappers.h"
+
+1422918418 d:\em_prj\lcd_touch\inc\touch.h
+
+1339195066 source:d:\em_prj\lcd_touch\src\speaker.c
+	<stdio.h>
+	"FreeRTOS.h"
+	"stm32f10x.h"
+	"queue.h"
+	"speaker.h"
+
+1339195066 d:\em_prj\lcd_touch\inc\speaker.h
+
+1422920319 d:\em_prj\lcd_touch\inc\menu.h
+
+1422920442 source:d:\em_prj\lcd_touch\src\menu.c
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	<stdint.h>
+	"FreeRTOS.h"
+	"touch.h"
+	"menu.h"
+	"queue.h"
+	"lcd_api.h"
+	"ili_lcd_general.h"
+
+1339195066 d:\em_prj\lcd_touch\freertos\source\include\semphr.h
+	"queue.h"
+
