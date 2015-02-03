@@ -2,7 +2,7 @@
 // Author: Brad Goold
 // Date: 15 Feb 2012
 // Email Address: W0085400@umail.usq.edu.au
-// 
+//
 // Purpose:
 // Pre:
 // Post:
@@ -17,9 +17,10 @@
 // Included Libraries
 //-------------------------------------------------------------------------
 //-------------------------------------------------------------------------
-#include <stdio.h> 
-#include "FreeRTOS.h" 
+#include <stdio.h>
+#include "FreeRTOS.h"
 #include "stm32f10x.h"
+#include "task.h"
 #include "queue.h"
 #include "speaker.h"
 #define BEEP_QUEUE_SIZE 1
@@ -42,25 +43,25 @@ static void beep( unsigned portBASE_TYPE len){
 
     for (jj= 0; jj < len; jj++)
     {
-        GPIO_WriteBit( GPIOE, GPIO_Pin_0,1 );           
+        GPIO_WriteBit( GPIOE, GPIO_Pin_0,1 );
         vTaskDelay(1);
         GPIO_WriteBit( GPIOE, GPIO_Pin_0,0 );
         vTaskDelay(1);
     }
 }
 
-void vBeepTask( void * pvParameters) 
+void vBeepTask( void * pvParameters)
 {
     xBeepQueue = xQueueCreate(BEEP_QUEUE_SIZE, 1);
     char x;
-    unsigned portBASE_TYPE ii,jj, uxVal;
-    static unsigned portBASE_TYPE last;
-    
-    unsigned portBASE_TYPE xStatus = 0;
-   
+//    unsigned portBASE_TYPE ii,jj, uxVal;
+//    static unsigned portBASE_TYPE last;
+
+//    unsigned portBASE_TYPE xStatus = 0;
+
     for (;;)
     {
-        
+
         if(xQueueReceive(xBeepQueue, &x, portMAX_DELAY))
         {
             switch (x){
@@ -73,9 +74,9 @@ void vBeepTask( void * pvParameters)
             default:
                 break;
             }
-            
-            
-            
+
+
+
         }
     }
 }

@@ -9,4 +9,4 @@ obj\debug\src\touch_test.o: src\touch_test.c inc/stm32f10x.h \
  FreeRTOS\Source\portable\GCC\ARM_CM3/portmacro.h \
  FreeRTOS\Source\include/mpu_wrappers.h FreeRTOS\Source\include/queue.h \
  inc/touch.h FreeRTOS\Source\include/task.h \
- FreeRTOS\Source\include/list.h inc/speaker.h
+ FreeRTOS\Source\include/list.h inc/speaker.h inc/menu.h

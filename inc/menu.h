@@ -27,4 +27,6 @@ void menu_run_applet(int (*applet_key_handler)(unsigned char));
 #define CRUMB_H 18
 #define COL_W    (LCD_WIDTH / 2)
 
+void menu_touch(int xx, int yy);
+
 #endif

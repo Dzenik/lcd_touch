@@ -29,6 +29,8 @@ extern void lcd_text(uint8_t col, uint8_t row, const char *text);
 extern void lcd_printf(uint8_t col, uint8_t row, uint8_t ww, const char *fmt, ...);
 extern void lcd_release();
 
+void lcd_fill(uint16_t xx, uint16_t yy, uint16_t ww, uint16_t hh, uint16_t color);
+void lcd_text_xy(uint16_t Xpos, uint16_t Ypos, const char *str,uint16_t Color, uint16_t bkColor);
 /**
  * The LCD is written to by more than one task so is controlled by a
  * 'gatekeeper' task.  This is the only task that is actually permitted to

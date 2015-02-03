@@ -1,10 +1,16 @@
+#include <stdio.h>
 #include <stdint.h>
+#include <stdarg.h>
 #include "FreeRTOS.h"
 #include "queue.h"
 #include "task.h"
 #include "ili_lcd_general.h"
 #include "lcd_api.h"
 #include "semphr.h"
+
+
+#define LCD_LOCK char auto_lock = 0;if (lcdUsingTask != xTaskGetCurrentTaskHandle()){ lcd_lock(); auto_lock = 1; }
+#define LCD_UNLOCK if (auto_lock) lcd_release()
 
 // we use this sempaphore to ensure multiple threads do not try to use the LCD at the same time
 xSemaphoreHandle xLcdSemaphore;
@@ -53,7 +59,7 @@ void lcd_lock()
 {
     while( xSemaphoreTake( xLcdSemaphore, ( portTickType ) 100 ) != pdTRUE )
     {
-	printf("Waiting a long time for LCD\r\n");
+        printf("Waiting a long time for LCD\r\n");
     }
     lcdUsingTask = xTaskGetCurrentTaskHandle();
 }
@@ -63,9 +69,6 @@ void lcd_release()
     xSemaphoreGive(xLcdSemaphore);
     lcdUsingTask = NULL;
 }
-
-#define LCD_LOCK char auto_lock = 0;if (lcdUsingTask != xTaskGetCurrentTaskHandle()){ lcd_lock(); auto_lock = 1; }
-#define LCD_UNLOCK if (auto_lock) lcd_release()
 
 /////////////////////////////////////////////////////////////////////////////////////////////////
 // THREADSAFE INTERFACE - uses semaphores to unsure only one thread is drawing at a time
@@ -80,21 +83,21 @@ void lcd_text_xy(uint16_t Xpos, uint16_t Ypos, const char *str,uint16_t Color, u
 
     while ((TempChar=*str++))
     {
-	lcd_char_xy(Xpos,Ypos,TempChar,Color,bkColor);
-	if (Xpos < MAX_X - 8)
-	{
-	    Xpos+=8;
-	}
-	else if (Ypos < MAX_Y - 16)
-	{
-	    Xpos=0;
-	    Ypos+=16;
-	}
-	else
-	{
-	    Xpos=0;
-	    Ypos=0;
-	}
+        LCD_write_english(Xpos,Ypos,TempChar,Color, bkColor);
+        if (Xpos < MAX_X - 8)
+        {
+            Xpos+=8;
+        }
+        else if (Ypos < MAX_Y - 16)
+        {
+            Xpos=0;
+            Ypos+=16;
+        }
+        else
+        {
+            Xpos=0;
+            Ypos=0;
+        }
     }
     LCD_UNLOCK;
 }
@@ -106,21 +109,20 @@ void lcd_text(uint8_t col, uint8_t row, const char *text)
 
 void lcd_fill(uint16_t xx, uint16_t yy, uint16_t ww, uint16_t hh, uint16_t color)
 {
-   int ii, jj;
-   LCD_LOCK;
-   for (ii = 0; ii < hh; ii++)
-   {
-      lcd_set_cursor(xx, yy + ii);
-      lcd_write_ram_prepare();
-      for (jj = 0; jj < ww; jj++)
-      {
-       write_data(color);
-      }
-   }
-   LCD_UNLOCK;
+    int ii, jj;
+    LCD_LOCK;
+    for (ii = 0; ii < hh; ii++)
+    {
+        lcd_SetCursor(xx, yy + ii);
+        rw_data_prepare();
+        for (jj = 0; jj < ww; jj++)
+        {
+            write_data(color);
+        }
+    }
+    LCD_UNLOCK;
 }
 
-#include <stdarg.h>
 void lcd_printf(uint8_t col, uint8_t row, uint8_t ww, const char *fmt, ...)
 {
     LCD_LOCK;
@@ -132,7 +134,7 @@ void lcd_printf(uint8_t col, uint8_t row, uint8_t ww, const char *fmt, ...)
 
     while (len < ww && len < sizeof(message) - 2)
     {
-    	message[len++] = ' ';
+        message[len++] = ' ';
     }
     message[len] = 0;
 
@@ -143,20 +145,43 @@ void lcd_printf(uint8_t col, uint8_t row, uint8_t ww, const char *fmt, ...)
 
 void lcd_clear(uint16_t Color)
 {
-   LCD_LOCK;
-   uint32_t index=0;
-   lcd_set_cursor(0,0);
-   lcd_write_ram_prepare(); /* Prepare to write GRAM */
-   for(index = 0; index < LCD_WIDTH * LCD_HEIGHT; index++)
-   {
-      write_data(Color);
-   }
-   LCD_UNLOCK;
+    LCD_LOCK;
+    uint32_t index=0;
+    lcd_SetCursor(0,0);
+    rw_data_prepare(); /* Prepare to write GRAM */
+    for(index = 0; index < LCD_WIDTH * LCD_HEIGHT; index++)
+    {
+        write_data(Color);
+    }
+    LCD_UNLOCK;
 }
 
 void lcd_background(uint16_t color)
 {
     bg_col = color;
+}
+
+static void lcd_DrawHLine(int x1, int x2, int col, int y )
+{
+    lcd_SetCursor(x1, y); //start position
+    rw_data_prepare(); /* Prepare to write GRAM */
+    while (x1 <= x2)
+    {
+        write_data(col);
+        x1 ++;
+
+    }
+}
+
+static void lcd_DrawVLine(int y1, int y2, int col, int x)
+{
+    lcd_SetCursor(x, y1); //start position
+    rw_data_prepare(); /* Prepare to write GRAM */
+    while (y1 <= y2)
+    {
+        write_data(col);
+        y1++;
+    }
 }
 
 void lcd_DrawRect(int x1, int y1, int x2, int y2, int col)

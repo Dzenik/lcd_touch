@@ -5,16 +5,17 @@
 #include "touch.h"
 #include "task.h"
 #include "speaker.h"
+#include "menu.h"
 
 /*
 7  6 - 4  3      2     1-0
 s  A2-A0 MODE SER/DFR PD1-PD0
 */
-#define TOUCH_MSR_Y  0x90   //¶ÁXÖá×ø±êÖ¸Áî addr:1
-#define TOUCH_MSR_X  0xD0   //¶ÁYÖá×ø±êÖ¸Áî addr:3
+#define TOUCH_MSR_Y  0x90   //è¯»Xè½´åæ ‡æŒ‡ä»¤ addr:1
+#define TOUCH_MSR_X  0xD0   //è¯»Yè½´åæ ‡æŒ‡ä»¤ addr:3
 
 
-// ´¥ÃşÓ²¼şÁ¬½Ó: (POWERAVR ºìÅ£¿ª·¢°å)
+// è§¦æ‘¸ç¡¬ä»¶è¿æ¥: (POWERAVR çº¢ç‰›å¼€å‘æ¿)
 // SPI    <==> SPI2
 // TP_CS  <==> PB12
 // TP_INT <==> PG7
@@ -22,8 +23,8 @@ s  A2-A0 MODE SER/DFR PD1-PD0
 
 #define TP_CS_LOW()               GPIO_ResetBits(GPIOB,GPIO_Pin_12)
 #define TP_CS_HIGH()              GPIO_SetBits(GPIOB,GPIO_Pin_12)
-// ¶ÁÈ¡TP_INTÒı½Å×´Ì¬,0ÎªÓĞ°´ÏÂ,1ÎªÊÍ·Å
-// ÕâÀïÎªÁËÊ¹ÓÃ·½±ã,TP_DOWN()·µ»Ø1ÎªÓĞ°´ÏÂ,0ÎªÊÍ·Å.
+// è¯»å–TP_INTå¼•è„šçŠ¶æ€,0ä¸ºæœ‰æŒ‰ä¸‹,1ä¸ºé‡Šæ”¾
+// è¿™é‡Œä¸ºäº†ä½¿ç”¨æ–¹ä¾¿,TP_DOWN()è¿”å›1ä¸ºæœ‰æŒ‰ä¸‹,0ä¸ºé‡Šæ”¾.
 #define TP_DOWN()                 (1-GPIO_ReadInputDataBit(GPIOG,GPIO_Pin_7))
 
 extern xQueueHandle xTPQueue;
@@ -78,7 +79,7 @@ static void EXTI_Configuration(void)
         /* Configure  EXTI  */
         EXTI_InitStructure.EXTI_Line    = EXTI_Line7;
         EXTI_InitStructure.EXTI_Mode    = EXTI_Mode_Interrupt;
-        EXTI_InitStructure.EXTI_Trigger = EXTI_Trigger_Falling;//FallingÏÂ½µÑØ RisingÉÏÉı
+        EXTI_InitStructure.EXTI_Trigger = EXTI_Trigger_Falling;//Fallingä¸‹é™æ²¿ Risingä¸Šå‡
 
         /* enable */
         EXTI_InitStructure.EXTI_LineCmd = ENABLE;
@@ -143,7 +144,7 @@ void touch_init(void)
     EXTI_Configuration();
 
     TP_CS_LOW();
-    SPI_WriteByte( 1<<7 ); /* ´ò¿ªÖĞ¶Ï */
+    SPI_WriteByte( 1<<7 ); /* æ‰“å¼€ä¸­æ–­ */
     TP_CS_HIGH();
 
 //    LCD_write_english_string(0,20,"touch init",Green,Blue);
@@ -160,7 +161,7 @@ void touch_init(void)
 //    LCD_write_english_string(0,100,"          ",White,Blue);
 //    LCD_write_english_string(0,40,"touch down",White,Blue);
 //
-//    // Èç¹ûÒ»Ö±°´ÏÂ,¾ÍÒ»Ö±¶ÁÈ¡²¢ÏÔÊ¾Ô­Ê¼×ø±ê
+//    // å¦‚æœä¸€ç›´æŒ‰ä¸‹,å°±ä¸€ç›´è¯»å–å¹¶æ˜¾ç¤ºåŸå§‹åæ ‡
 //    while( TP_DOWN() )
 //    {
 //        for(i=0; i<10; i++)
@@ -171,11 +172,11 @@ void touch_init(void)
 //            tmpx[i] |= ((SPI_WriteByte(TOUCH_MSR_Y)>>4)&0x0F );    /* read LSB bit[7:0] and prepare read Y */
 //            tmpy[i] = SPI_WriteByte(0x00)<<4;                      /* read MSB bit[11:8] */
 //            tmpy[i] |= ((SPI_WriteByte(0x00)>>4)&0x0F );           /* read LSB bit[7:0] */
-//            SPI_WriteByte( 1<<7 ); /* ÔÙ´Î´ò¿ªÖĞ¶Ï */
+//            SPI_WriteByte( 1<<7 ); /* å†æ¬¡æ‰“å¼€ä¸­æ–­ */
 //            TP_CS_HIGH();
 //        }
 //
-//        //È¥×î¸ßÖµÓë×îµÍÖµ,ÔÙÈ¡Æ½¾ùÖµ
+//        //å»æœ€é«˜å€¼ä¸æœ€ä½å€¼,å†å–å¹³å‡å€¼
 //        {
 //            uint32_t min_x = 0xFFFF,min_y = 0xFFFF;
 //            uint32_t max_x = 0,max_y = 0;
@@ -209,7 +210,7 @@ void touch_init(void)
 //            total_y = total_y - min_y - max_y;
 //            touch_x = total_x / 8;
 //            touch_y = total_y / 8;
-//        }//È¥×î¸ßÖµÓë×îµÍÖµ,ÔÙÈ¡Æ½¾ùÖµ
+//        }//å»æœ€é«˜å€¼ä¸æœ€ä½å€¼,å†å–å¹³å‡å€¼
 //
 //        //display
 //        {
@@ -222,7 +223,7 @@ void touch_init(void)
 //            printf("\rtouch down!");
 //            printf("X:%04d Y:%04d         ",touch_x,touch_y);
 //        }
-//    }// Èç¹ûÒ»Ö±°´ÏÂ,¾ÍÒ»Ö±¶ÁÈ¡²¢ÏÔÊ¾Ô­Ê¼×ø±ê
+//    }// å¦‚æœä¸€ç›´æŒ‰ä¸‹,å°±ä¸€ç›´è¯»å–å¹¶æ˜¾ç¤ºåŸå§‹åæ ‡
 //
 //    // touch up
 //    LCD_write_english_string(0,40,"           ",White,Blue);
@@ -234,82 +235,82 @@ void touch_init(void)
 
 void vTouchTask( void *pvParameters )
 {
-	printf("Touch start\r\n");
+    printf("Touch start\r\n");
 
-	touch_init();
-	unsigned int x = 0, y = 0, beep = TOUCH_BEEP; // current x,y value
-   uint16_t tmpx[10];
-   uint16_t tmpy[10];
-   unsigned int i;
+    touch_init();
+    unsigned int x = 0, y = 0, beep = TOUCH_BEEP; // current x,y value
+    uint16_t tmpx[10];
+    uint16_t tmpy[10];
+    unsigned int i;
 
-	unsigned char valid = 0;
-	for( ;; )
-	{
-		//measure x,y
-      while( TP_DOWN() )
-      {
-        for(i=0; i<10; i++)
+    unsigned char valid = 0;
+    for( ;; )
+    {
+        //measure x,y
+        while( TP_DOWN() )
         {
-            TP_CS_LOW();
-            SPI_WriteByte(TOUCH_MSR_X);                            /* read X */
-            tmpx[i] = SPI_WriteByte(0x00)<<4;                      /* read MSB bit[11:8] */
-            tmpx[i] |= ((SPI_WriteByte(TOUCH_MSR_Y)>>4)&0x0F );    /* read LSB bit[7:0] and prepare read Y */
-            tmpy[i] = SPI_WriteByte(0x00)<<4;                      /* read MSB bit[11:8] */
-            tmpy[i] |= ((SPI_WriteByte(0x00)>>4)&0x0F );           /* read LSB bit[7:0] */
-            SPI_WriteByte( 1<<7 ); /* ÔÙ´Î´ò¿ªÖĞ¶Ï */
-            TP_CS_HIGH();
-        }
-
-        {
-            uint32_t min_x = 0xFFFF,min_y = 0xFFFF;
-            uint32_t max_x = 0,max_y = 0;
-            uint32_t total_x = 0;
-            uint32_t total_y = 0;
-            unsigned int i;
-
             for(i=0; i<10; i++)
             {
-                if( tmpx[i] < min_x )
-                {
-                    min_x = tmpx[i];
-                }
-                if( tmpx[i] > max_x )
-                {
-                    max_x = tmpx[i];
-                }
-                total_x += tmpx[i];
-
-                if( tmpy[i] < min_y )
-                {
-                    min_y = tmpy[i];
-                }
-                if( tmpy[i] > max_y )
-                {
-                    max_y = tmpy[i];
-                }
-                total_y += tmpy[i];
+                TP_CS_LOW();
+                SPI_WriteByte(TOUCH_MSR_X);                            /* read X */
+                tmpx[i] = SPI_WriteByte(0x00)<<4;                      /* read MSB bit[11:8] */
+                tmpx[i] |= ((SPI_WriteByte(TOUCH_MSR_Y)>>4)&0x0F );    /* read LSB bit[7:0] and prepare read Y */
+                tmpy[i] = SPI_WriteByte(0x00)<<4;                      /* read MSB bit[11:8] */
+                tmpy[i] |= ((SPI_WriteByte(0x00)>>4)&0x0F );           /* read LSB bit[7:0] */
+                SPI_WriteByte( 1<<7 ); /* å†æ¬¡æ‰“å¼€ä¸­æ–­ */
+                TP_CS_HIGH();
             }
-            total_x = total_x - min_x - max_x;
-            total_y = total_y - min_y - max_y;
-            x = total_x / 8;
-            y = total_y / 8;
+
+            {
+                uint32_t min_x = 0xFFFF,min_y = 0xFFFF;
+                uint32_t max_x = 0,max_y = 0;
+                uint32_t total_x = 0;
+                uint32_t total_y = 0;
+                unsigned int i;
+
+                for(i=0; i<10; i++)
+                {
+                    if( tmpx[i] < min_x )
+                    {
+                        min_x = tmpx[i];
+                    }
+                    if( tmpx[i] > max_x )
+                    {
+                        max_x = tmpx[i];
+                    }
+                    total_x += tmpx[i];
+
+                    if( tmpy[i] < min_y )
+                    {
+                        min_y = tmpy[i];
+                    }
+                    if( tmpy[i] > max_y )
+                    {
+                        max_y = tmpy[i];
+                    }
+                    total_y += tmpy[i];
+                }
+                total_x = total_x - min_x - max_x;
+                total_y = total_y - min_y - max_y;
+                x = total_x / 8;
+                y = total_y / 8;
+            }
         }
-      }
 
-		//printf("x %d y %d\r\n", x, y);
+        //printf("x %d y %d\r\n", x, y);
 
-		if (x >=0 && x < 320 && y >= 0 && y < 240)
-		{
-			if (!valid)
-				menu_touch(x, y);
-			valid = 1;
-		}
-		else if (valid)
-		{
-			menu_touch(-1, -1);
-			valid = 0;
-		}
+        if (x >=0 && x < 320 && y >= 0 && y < 240)
+        {
+            if (!valid)
+                menu_touch(x, y);
+            valid = 1;
+        }
+        else if (valid)
+        {
+            menu_touch(-1, -1);
+            valid = 0;
+        }
 
-		vTaskDelay( 10 );
-	}
+        vTaskDelay( 10 );
+    }
 }
